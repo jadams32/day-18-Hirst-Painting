@@ -28,7 +28,7 @@ new_colors = [(219, 156, 91), (127, 166, 192), (55, 102, 146), (182, 65, 29), (2
               (28, 87, 55), (17, 60, 129), (244, 166, 152), (20, 53, 37), (107, 120, 168), (173, 188, 217), (70, 42, 50)]
 
 
-def line_draw():
+def dot_draw():
     for i in range(10):
         john.dot(20, random.choice(new_colors))
         john.penup()
@@ -36,17 +36,24 @@ def line_draw():
 
 
 def new_line(forward_paces):
-    john.home()
     john.setheading(90)
     john.forward(forward_paces)
     john.setheading(0)
 
 
-def draw_painting(paces):
+def set_position(y_pos):
+    john.penup()
+    john.setposition(-200, y_pos)
+
+
+def draw_painting(dot_spacing):
+    y_pos = -200
     for n in range(10):
-        line_draw()
-        new_line(paces)
-        paces += 50
+        set_position(y_pos)
+        dot_draw()
+        new_line(dot_spacing)
+        dot_spacing += 50
+        y_pos += 50
 
 
 draw_painting(50)
