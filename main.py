@@ -19,6 +19,9 @@ import random
 
 
 john = Turtle()
+screen = Screen()
+screen.colormode(255)
+
 new_colors = [(219, 156, 91), (127, 166, 192), (55, 102, 146), (182, 65, 29), (238, 209, 96), (128, 178, 146),
               (229, 66, 99), (62, 118, 83), (240, 65, 36), (213, 126, 151), (10, 43, 66), (182, 19, 9), (143, 71, 98),
               (173, 147, 53), (80, 158, 111), (65, 40, 20), (165, 22, 35), (239, 157, 173), (158, 212, 199),
@@ -26,11 +29,10 @@ new_colors = [(219, 156, 91), (127, 166, 192), (55, 102, 146), (182, 65, 29), (2
 
 
 def line_draw():
-    for i in range(11):
-        john.dot(20, "green")
+    for i in range(10):
+        john.dot(20, random.choice(new_colors))
         john.penup()
         john.forward(50)
-        john.dot(20, "green")
 
 
 def new_line(forward_paces):
@@ -41,13 +43,14 @@ def new_line(forward_paces):
 
 
 def draw_painting(paces):
-    for n in range(11):
+    for n in range(10):
         line_draw()
         new_line(paces)
         paces += 50
 
+
 draw_painting(50)
 
 
-screen = Screen()
+
 screen.exitonclick()
