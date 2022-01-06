@@ -40,13 +40,13 @@ def new_line(forward_paces):
     john.setheading(0)
 
 
-paces = 50
+def draw_painting(paces):
+    for n in range(11):
+        line_draw()
+        new_line(paces)
+        paces += 50
 
-for n in range(11):
-    line_draw()
-    new_line(paces)
-    paces += 50
-
+draw_painting(50)
 
 
 screen = Screen()
